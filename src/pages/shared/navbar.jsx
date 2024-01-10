@@ -38,7 +38,7 @@ const Navbar = () => {
     ]
     return (
         <header className="w-full bg-white bg-opacity-50 bg-transparent fixed top-0 right-0 left-0 transition-all ease-in duration-300">
-            <nav className={`py-4 lg:px-24 px-4 ${isSticky? 'sticky top-0 left-0 right-0 bg-blue-300 bg-opacity-100': ''}`}>
+            <nav className={`py-4 lg:px-24 px-4 ${isSticky? 'sticky top-0 left-0 right-0 bg-blue-300 bg-opacity-90': ''}`}>
                 <div className="flex justify-between items-center">
                     {/* logo */}
                     <Link to="/" className="text-2xl font-bold text-blue-700 flex items-center gap-2"><VscLibrary className="inline-block" />লাইব্রেরি</Link>
