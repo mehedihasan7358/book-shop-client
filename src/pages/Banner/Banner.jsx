@@ -19,7 +19,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 const Banner = () => {
 
     return (
-        <div className='mt-24 mx-4 lg:mx-24 '>
+        <div className='mt-20 mx-4 lg:mx-24 '>
             <Swiper
                 pagination={{
                     type: 'fraction',
