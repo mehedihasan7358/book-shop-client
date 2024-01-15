@@ -26,7 +26,7 @@ const AllBooks = () => {
                             </div>
                             <div className="space-y-3">
                                 <h1 className="text-xl font-bold">{book.bookTitle}</h1>
-                                <p>{book.authorName}</p>
+                                <p>{book.authorName.length > 30 ? `${book.authorName.slice(0, 30)}...`: book.authorName}</p>
                                 <p className="text-red-500 text-xl font-medium">{book?.price}৳</p>
                             </div>
                         
