@@ -1,8 +1,10 @@
+import { useLoaderData } from "react-router-dom";
 
 const BookDetails = () => {
+    const { _id, bookTitle, } = useLoaderData()
     return (
-        <div>
-           <h1>This single book page</h1> 
+        <div className='mt-20 mx-4 lg:mx-24'>
+            <h1>{bookTitle}</h1>
         </div>
     );
 };

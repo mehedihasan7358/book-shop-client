@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const AllBooks = () => {
@@ -22,7 +23,7 @@ const AllBooks = () => {
 
                             </div>
                             <div className="w-full text-white rounded bg-blue-700 py-2 px-2 flex justify-center items-center">
-                                <button className='flex justify-center items-center gap-2'><FaShoppingCart />অর্ডার করুন</button>
+                                <Link to={`/book/${book._id}`}><button className='flex justify-center items-center gap-2'><FaShoppingCart />অর্ডার করুন</button></Link>
                             </div>
                             <div className="space-y-3">
                                 <h1 className="text-xl font-bold">{book.bookTitle}</h1>

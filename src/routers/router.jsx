@@ -13,13 +13,13 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                children: [
-                    {
-                        path: '/book/:id',
-                        element: <BookDetails></BookDetails>
-                    }
-                ]
+
             },
+            {
+                path: '/book/:id',
+                element: <BookDetails></BookDetails>,
+                loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+            }
         ]
     },
 ]);
