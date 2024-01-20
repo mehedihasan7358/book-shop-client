@@ -10,6 +10,7 @@ import 'swiper/css/pagination';
 
 // import required modules
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const BestBooks = () => {
     const [books, setBooks] = useState([]);
@@ -46,7 +47,7 @@ const BestBooks = () => {
                         <div className='w-full '>
                             <div className='h-80'>
                                 <div className='absolute bottom-0 hover:bg-opacity-100 bg-opacity-50 w-full text-white rounded bg-blue-700 py-2 px-2 flex justify-center items-center'>
-                                    <button className='flex justify-center items-center gap-2'><FaShoppingCart />অর্ডার করুন</button>
+                                    <Link to={`/book/${book._id}`}><button className='flex justify-center items-center gap-2'><FaShoppingCart />অর্ডার করুন</button></Link>
                                 </div>
                                 <img src={book.imageUrl} alt="" className='rounded' />
                             </div>
