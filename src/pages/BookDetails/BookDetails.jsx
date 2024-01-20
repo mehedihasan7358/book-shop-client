@@ -8,11 +8,11 @@ const BookDetails = () => {
     useEffect(() => {
         fetch('http://localhost:5000/all-books')
             .then(res => res.json())
-            .then(data => setBooks(data))
+            .then(data => setBooks(data.slice(0, 10)))
     }, [])
     return (
         <div className='mt-20 mx-4 lg:mx-24'>
-            <div className="flex justify-center gap-10">
+            <div className="flex flex-col lg:flex-row justify-center gap-10">
                 <div className="flex justify-center h-96">
                     <img src={imageUrl} alt="" />
                 </div>
@@ -40,7 +40,7 @@ const BookDetails = () => {
                                         <img src={book.imageUrl} alt="" className="w-14" />
                                         <div>
                                             <h1>{book.bookTitle}</h1>
-                                            <p className="text-sm">{book.authorName.length > 30 ? `${book.authorName.slice(0, 30)}...` : book.authorName}</p>
+                                            <p className="text-sm">{book.authorName.length > 25 ? `${book.authorName.slice(0, 25)}...` : book.authorName}</p>
                                             <p className="text-sm">{book.category.length > 20 ? `${book.category.slice(0, 20)}...` : book.category}</p>
                                             <p className="text-blue-700"><span className="text-gray-400 line-through">{parseFloat(book.price) / 100 * 20 + parseFloat(book.price)} ৳</span> {book.price} ৳</p>
                                         </div>
