@@ -4,6 +4,9 @@ import {
 import Main from "../layout/main";
 import Home from "../pages/home/home";
 import BookDetails from "../pages/BookDetails/BookDetails";
+import Dashboard from "../Dashboard/Dashboard";
+import UploadBook from "../Dashboard/UploadBook";
+import UpdateBook from "../Dashboard/UpdateBook";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +25,20 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            {
+                path: '/dashboard/upload-book',
+                element: <UploadBook></UploadBook>
+            },
+            {
+                path: '/dashboard/edit-book',
+                element: <UpdateBook></UpdateBook>
+            }
+        ]
+    }
 ]);
 
 export default router;
