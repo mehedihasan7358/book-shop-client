@@ -7,6 +7,8 @@ import BookDetails from "../pages/BookDetails/BookDetails";
 import Dashboard from "../Dashboard/Dashboard";
 import UploadBook from "../Dashboard/UploadBook";
 import UpdateBook from "../Dashboard/UpdateBook";
+import DeleteBook from "../Dashboard/DeleteBook";
+import Profile from "../Dashboard/Profile";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/edit-book',
                 element: <UpdateBook></UpdateBook>
+            },
+            {
+                path: '/dashboard/book-delete',
+                element: <DeleteBook></DeleteBook>
+            },
+            {
+                path: '/dashboard/profile',
+                element: <Profile></Profile>
             }
         ]
     }
