@@ -8,7 +8,7 @@ import { BiLogOutCircle } from "react-icons/bi";
 
 const DashboardSidebar = () => {
     return (
-        <div className="bg-slate-200 h-screen pl-4 pr-10 flex flex-col justify-between">
+        <div className="bg-slate-200 h-screen pl-4 pr-10 flex flex-col justify-between fixed">
             <div className="flex flex-col gap-2 text-lg  mt-16">
                 <p className="text-2xl font-bold mt-2">ড্যাশবোর্ড</p>
                 <NavLink to="/dashboard/profile" className='py-1 px-3 flex gap-2'> <CgProfile className="text-2xl" /> <p>প্রফাইল</p></NavLink>

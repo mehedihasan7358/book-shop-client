@@ -8,10 +8,10 @@ const Dashboard = () => {
             {/* <Link to="/"><h1 className="text-3xl font-bold my-2">লাইব্রেরী</h1></Link> */}
             <Navbar></Navbar>
             <div className="flex justify-start gap-6">
-                <div>
+                <div className="w-80">
                     <DashboardSidebar></DashboardSidebar>
                 </div>
-                <div className="mt-20">
+                <div className="mt-20 w-full">
                     <Outlet></Outlet>
                 </div>
             </div>

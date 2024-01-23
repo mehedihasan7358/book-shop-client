@@ -34,7 +34,7 @@ const Navbar = () => {
         { link: 'আমাদের সম্পর্কে', path: '/about' },
         { link: 'দোকান', path: '/shop' },
         { link: 'বই বিক্রি করুন', path: '/admin/dashboard' },
-        { link: 'ব্লগ', path: '/blog' },
+        { link: 'ড্যাশবোর্ড', path: '/dashboard' },
     ]
     return (
         <header className="w-full bg-white bg-opacity-50 bg-transparent fixed top-0 right-0 left-0 transition-all ease-in duration-300">

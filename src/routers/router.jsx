@@ -9,6 +9,7 @@ import UploadBook from "../Dashboard/UploadBook";
 import UpdateBook from "../Dashboard/UpdateBook";
 import DeleteBook from "../Dashboard/DeleteBook";
 import Profile from "../Dashboard/Profile";
+import EditBook from "../Dashboard/EditBook";
 
 const router = createBrowserRouter([
     {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
             {
                 path: '/book/:id',
                 element: <BookDetails></BookDetails>,
-                loader: ({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
             }
         ]
     },
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/edit-book',
                 element: <UpdateBook></UpdateBook>
+            },
+            {
+                path: '/dashboard/edit-book/:id',
+                element: <EditBook></EditBook>,
+                loader: ({ params }) => fetch(`http://localhost:5000/book/${params.id}`)
             },
             {
                 path: '/dashboard/book-delete',
