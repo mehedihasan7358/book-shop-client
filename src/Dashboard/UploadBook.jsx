@@ -1,10 +1,38 @@
+import Swal from 'sweetalert2'
 
 const UploadBook = () => {
     const handleUploadBook = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.value;
-        const author = form.author.value;
+        const bookTitle = form.name.value;
+        const authorName = form.author.value;
+        const imageUrl = form.photoUrl.value;
+        const category = form.category.value;
+        const bookPdfUrl = form.pdfLink.value;
+        const price = form.price.value;
+        const bookDescription = form.description.value;
+
+        const book = { bookTitle, authorName, imageUrl, category, bookPdfUrl, price, bookDescription };
+        console.log(book);
+        fetch('http://localhost:5000/upload-book', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(book)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "অভিনন্দন",
+                        text: "ডাটাবেসে আপনার বই যুক্ত হয়েছে।",
+                        icon: "success"
+                    });
+                    form.reset()
+                }
+            })
+
     }
     return (
         <div className="">
@@ -16,32 +44,32 @@ const UploadBook = () => {
                 <form onSubmit={handleUploadBook}>
                     <div className="lg:grid md:grid md:grid-cols-2 lg:grid-cols-2 gap-5 mt-5">
                         <div>
-                            <h3 className="label-text font-bold mb-1">বইয়ের নাম</h3>
-                            <input type="name" name="name" placeholder="বইয়ের নাম লিখুন" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">বইয়ের নাম <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="name" name="name" placeholder="বইয়ের নাম লিখুন" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <div>
-                            <h3 className="label-text font-bold mb-1">লেখকের নাম</h3>
-                            <input type="name" name="author" placeholder="লেখকের নাম লিখুন" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">লেখকের নাম <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="name" name="author" placeholder="লেখকের নাম লিখুন" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <div>
-                            <h3 className="label-text font-bold mb-1">ফটো ইউআরএল</h3>
-                            <input type="name" name="photoUrl" placeholder="ফটো ইউআরএল দিন" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">ফটো ইউআরএল <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="url" name="photoUrl" placeholder="ফটো ইউআরএল দিন" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <div>
-                            <h3 className="label-text font-bold mb-1">বইয়ের ধরন</h3>
-                            <input type="name" name="category" placeholder="বইয়ের ধরন লিখুন" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">বইয়ের ধরন <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="name" name="category" placeholder="বইয়ের ধরন লিখুন" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <div>
-                            <h3 className="label-text font-bold mb-1">পিডিএফ লিংক</h3>
-                            <input type="name" name="pdfLink" placeholder="বইয়ের পিডিএফ লিংক" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">পিডিএফ লিংক <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="url" name="pdfLink" placeholder="বইয়ের পিডিএফ লিংক" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <div>
-                            <h3 className="label-text font-bold mb-1">বইয়ের দাম</h3>
-                            <input type="name" name="price" placeholder="বইয়ের দাম লিখুন" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">বইয়ের দাম <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="number" name="price" placeholder="বইয়ের দাম লিখুন" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <div className="col-span-2">
-                            <h3 className="label-text font-bold mb-1">বইয়ের বিবরণ</h3>
-                            <input type="name" name="description" placeholder="বইয়ের বিবরণ লিখুন" className="p-[8px] rounded-md w-full border" />
+                            <h3 className="label-text font-bold mb-1">বইয়ের বিবরণ <span className="text-red-600 text-lg">*</span> </h3>
+                            <input required type="name" name="description" placeholder="বইয়ের বিবরণ লিখুন" className="p-[8px] rounded-md w-full border" />
                         </div>
                         <input type="submit" className="w-full py-[8px] text-center font-medium bg-blue-700 text-white col-span-2 border rounded-md" value="সেভ করুন" />
                     </div>
